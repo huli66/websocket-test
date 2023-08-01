@@ -2,7 +2,9 @@ import { SocketServer, subscribeWebsocket } from "../sockets/webSocket";
 
 const SubSocketA = () => {
   const subscribeSocket = (socketServer: SocketServer) => {
-    subscribeWebsocket(socketServer, {});
+    subscribeWebsocket(socketServer, {
+      callback: (message) => console.log(message),
+    });
   };
   return (
     <ul>

@@ -19,10 +19,38 @@ app.get("/name", function (req, res) {
 
 app.ws("/mdm", function (ws, req) {
   ws.on("message", function (msg) {
+    if (msg === "PING") {
+      ws.send("PONG");
+      return;
+    }
+    console.log(msg);
+    ws.send("mdm socket receive");
+  });
+  console.log("socket", req.testing);
+});
+
+app.ws("/tdm", function (ws, req) {
+  ws.on("message", function (msg) {
+    if (msg === "PING") {
+      ws.send("PONG");
+      return;
+    }
     console.log(msg);
     ws.send("socket receive");
   });
   console.log("socket", req.testing);
 });
+
+// app.ws("/scm", function (ws, req) {
+//   ws.on("message", function (msg) {
+//     if (msg === "PING") {
+//       ws.send("PONG");
+//       return;
+//     }
+//     console.log(msg);
+//     ws.send("socket receive");
+//   });
+//   console.log("socket", req.testing);
+// });
 
 app.listen(3000, () => console.log("start"));

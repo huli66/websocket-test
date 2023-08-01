@@ -3,6 +3,7 @@ import "./App.css";
 import ShowStatus from "./components/ShowStatus";
 import SubSocketA from "./components/SubSocketA";
 import { SocketServer, createWebsocket } from "./sockets/webSocket";
+import TestSocketHook from "./components/TestSocketHook";
 
 function App() {
   const [status, setStatus] = useState(0);
@@ -14,7 +15,8 @@ function App() {
 
   return (
     <>
-      <ShowStatus status={0x000001} />
+      <TestSocketHook />
+      {/* <ShowStatus status={0x000001} />
       <SubSocketA />
       <div
         onClick={() => {
@@ -39,7 +41,7 @@ function App() {
         }}
       >
         fetch
-      </div>
+      </div> */}
     </>
   );
 }
